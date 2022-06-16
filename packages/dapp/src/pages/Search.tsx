@@ -44,14 +44,69 @@ export const WhiteParagraph18 = styled(Text)`
 
 const checkSpaceDatesRestrictions = (id: string, start: number, days: number) => {
   const restrictions: Record<string, { start: number, days: number }> = {
-    '0x1d50703e2ae2f103b45d81812d328567c2383f120024d888b646e9bffb2630c0': {
-      start: 54,
-      days: 8
+    // Hotel Pulitzer
+    '0x7d1d4f2576df2029cb9eb2364fd402e48336ea7ff24426c146fe0af9d62cb84d': {
+      start: 134,
+      days: 3
     },
-    '0xac6bde3c8b75bb65189ab09c634a903a78b35c1acb1653b664e71a406c2f6a94': {
-      start: 54,
-      days: 8
-    }
+    '0x3fd590383cd69b3570a65c1340ae7bf2c2861ba58884128e9b068ed6f3c111cf': {
+      start: 134,
+      days: 3
+    },
+    // Hotel Regina
+    '0x30c04b5667eea2d5cf91c8d630a870c040b1b1627843d5d281e4101efc99d922': {
+      start: 134,
+      days: 3
+    },
+    '0x12b151e445694d511136eeb95169fd46379e19697d4488dc6637b93d4a037a8f': {
+      start: 134,
+      days: 3
+    },
+    // Hotel Roger De Lluria
+    '0xf74f70c31b638cc35c844a44993c78d24943fd5a2a79502507de0db3515cdfea': {
+      start: 134,
+      days: 3
+    },
+    '0x6abd388e0b94564cb4bbecc06ebe587dab37325cf583bdc785bc27fafb16908f': {
+      start: 134,
+      days: 3
+    },
+    // Le Méridien Barcelona
+    '0x8251843e35e1f83aa0279b186ae94b0e23c6d59f8341f112619054249e7449a3': {
+      start: 134,
+      days: 2
+    },
+    '0xf6484ff43435f7ffd23efa68466db925af72b530f438bda8e58ec5547fa7251b': {
+      start: 134,
+      days: 2
+    },
+    // Sercotel Porta de Barcelona
+    '0x3753f44bb3ec91ee3d481791a8e4709396ef586eaac3f8c319fbcc0e2998bde1': {
+      start: 132,
+      days: 5
+    },
+    '0x94c96011b7f6378ec85d964d8e2b427a5b8a6adf8fa72595bf690b56ee83699c': {
+      start: 132,
+      days: 5
+    },
+    // Sercotel Sant Boi
+    '0x97fb9ffdaefa48c77920451a63a99d62f768df1d2e29faf2dd095f2cafad541c': {
+      start: 132,
+      days: 5
+    },
+    '0x76a2e69d85f3d32b340e91efafa5e219148ca5886eb841a5cdef10b2337b59aa': {
+      start: 132,
+      days: 5
+    },
+    // Sercotel Cornella
+    '0x6c19a035fe41a43311069ca94877936e16339377d7b23c646279c684995dd2a9': {
+      start: 132,
+      days: 5
+    },
+    '0xc173612c0a7432a8616f5df648d133dbabec6be8e6e6ad494ef1136a785fb4f1': {
+      start: 132,
+      days: 5
+    },
   };
   return restrictions[id]
     ? restrictions[id].start === start &&
