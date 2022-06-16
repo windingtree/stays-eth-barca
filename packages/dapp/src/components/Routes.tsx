@@ -25,6 +25,8 @@ import { Token } from '../pages/Token';
 const CustomMenu = styled(Menu)`
   border-radius: 50%;
   border: 1px solid black;
+background: white;
+
 `;
 
 export interface RouteConfig {

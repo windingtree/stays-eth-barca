@@ -1,22 +1,24 @@
 import { DateTime } from 'luxon';
-import { Box, TextInput, DateInput } from 'grommet';
+import { Box, TextInput, DateInput, Button } from 'grommet';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react'
 import styled from 'styled-components';
-import { WhiteButton } from '../buttons';
 import { getDate } from '../../utils/dates';
+import { FormSearch as Search } from 'grommet-icons';
+import { useWindowsDimension } from '../../hooks/useWindowsDimension';
 
 export const Label = styled.div`
   @include g-font($g-fontsize-xs,$glider-color-text-labels,$g-fontweight-normal);
-  margin-left: 4px;
+  // margin-left: 4px;
+  font-weight: 700;
 `;
 
 export const RoomsNumber = styled(TextInput)`
-  height: 2.5rem;
+  // height: 2.5rem;
   background: white;
-  color: black;
-  border: 1px solid black;
-  border-radius: 2.5rem;
+  color: #999EAB;
+  // border: 1px solid black;
+  // border-radius: 2.5rem;
   &:hover,&:active {
     box-shadow: 0px 0px 0px 2px black;
   }
@@ -52,7 +54,7 @@ export const SearchForm: React.FC<{
   const [departureDate, setDepartureDate] = useState<string>(defaultStartDate);
   const [returnDate, setReturnDate] = useState<string>(defaultEndDate);
   const [roomsNumber, setRoomsNumber] = useState<number>(initRoomsNumber ?? 1);
-
+  const { winWidth } = useWindowsDimension();
   useEffect(() => {
     if (!!startDay && !!numberOfDays) {
       const departureDay = getDate(startDay);
@@ -97,26 +99,42 @@ export const SearchForm: React.FC<{
   return (
     <Box
       direction='row'
-      align='end'
-      justify='center'
-      margin={{ top: 'large', bottom: 'small' }}
+      alignSelf='center'
+      align='center'
+      background='white'
+      justify='between'
+      width='31rem'
+      height='4rem'
+      border={{ color: 'black' }}
+      round='large'
+      pad='small'
     >
       <Box
-        direction='column'
-        margin={{ right: 'small' }}
+        margin={{ left: 'small' }}
       >
-        <Label>When</Label>
+
+        <Label style={{ marginLeft: '0.5rem' }}>Location</Label>
+        <TextInput plain disabled placeholder='Barcelona' />
+      </Box>
+      <Box
+        direction='column'
+        margin={{
+          right: 'small',
+          bottom: winWidth > 410 ? '0.5rem' : ''
+        }}
+      >
+        <Label style={{ marginLeft: '0' }}>When</Label>
         <DateInput
+          // plain
           buttonProps={{
             label: `${DateTime.fromISO(departureDate).toFormat('dd.MM.yy')}-${DateTime.fromISO(returnDate).toFormat('dd.MM.yy')}`,
             size: 'large',
             icon: undefined,
+            plain: true,
+            color:'#999EAB',
             style: {
-              height: '2.5rem',
+              marginTop:  winWidth > 410 ? '0.5rem' : '',
               background: 'white',
-              color: 'black',
-              border: '1px solid black',
-              borderRadius: '2.5rem',
             }
           }}
           calendarProps={{
@@ -135,9 +153,10 @@ export const SearchForm: React.FC<{
         direction='column'
         margin={{ right: 'small' }}
       >
-        <Label>Rooms</Label>
+        <Label style={{ marginLeft: '0.5rem' }}>Rooms</Label>
         <Box>
           <RoomsNumber
+            plain
             size='medium'
             focusIndicator={false}
             suggestions={['1', '2', '3', '4', '5', '6', '7']}
@@ -153,9 +172,15 @@ export const SearchForm: React.FC<{
           />
         </Box>
       </Box>
-      <WhiteButton
+      <Button
+        style={{
+          // marginLeft: '4rem',
+          justifySelf: 'flex-end',
+          borderRadius: "26px",
+          background: 'black'
+        }}
         size='large'
-        label='Search'
+        icon={<Search color='white' size='30' />}
         onClick={() => handleSearch()}
       />
     </Box>
