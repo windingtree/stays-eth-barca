@@ -39,8 +39,8 @@ export const parseDateToDays = (dayZero: DateTime, firstDate: DateTime, secondDa
 const today = DateTime.now().set({ hour: 1 });
 const tomorrow = today.plus({ days: 1 });
 
-const defaultStartDay = DateTime.fromISO('2022-04-22');
-const defaultEndDay = DateTime.fromISO('2022-04-28');
+const defaultStartDay = DateTime.fromISO('2022-07-03');
+const defaultEndDay = DateTime.fromISO('2022-07-10');
 
 const defaultStartDate = today.toMillis() > defaultStartDay.toMillis() ? today.toISO() : defaultStartDay.toISO()
 const defaultEndDate = tomorrow.toMillis() > defaultEndDay.toMillis() ? tomorrow.toISO() : defaultEndDay.toISO()
