@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: production
-    if: github.event_name == 'push' && github.ref == 'refs/heads/production'
+    if: github.ref == 'refs/heads/production'
     steps:
       - uses: actions/checkout@v3
 
