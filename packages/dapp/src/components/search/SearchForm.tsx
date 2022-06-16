@@ -138,7 +138,7 @@ export const SearchForm: React.FC<{
             }
           }}
           calendarProps={{
-            // bounds: [defaultStartDay.toISO(), defaultEndDay.toISO()],
+            bounds: [defaultStartDay.toISO(), defaultEndDay.toISO()],
             fill: false,
             alignSelf: 'center',
             margin: 'small',
