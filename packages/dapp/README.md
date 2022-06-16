@@ -12,6 +12,6 @@ BROWSER=false
 HTTPS=true
 REACT_APP_LOG_LEVEL=info
 REACT_APP_NETWORK_PROVIDERS='<stringified object of records in format: {chainId: providerRpcUri}>'
-REACT_APP_FILE_WEB3STORAGE_KEY=<web3 storage API key>
+REACT_APP_FILE_WEB3STORAGE_KEY=<web3 storage APIKey>
 
 ```
