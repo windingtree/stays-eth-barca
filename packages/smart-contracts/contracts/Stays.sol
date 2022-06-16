@@ -25,7 +25,7 @@ contract Stays is Initializable, ERC721Upgradeable, ERC721EnumerableUpgradeable,
 
   uint32 public constant dayZero = 1645567342; // 22 Feb 2022
   string public constant serviceURI = "https://win.so/";
-  string private constant tokenImageURI = 'https://bafybeiakjrhbgmv54l4nsdwxxcdfkpeqh33m45asmw6rkwhujryw2qa7n4.ipfs.dweb.link/token.png';
+  string private constant tokenImageURI = 'https://bafybeig5ifmeiveg4jfn5svhl6j6nk6k4hjmjxm7ejqqzxz3yhzqzj723u.ipfs.dweb.link/barcelona.png';
 
   // Lodging Facility is any type of accommodation: hotel, hostel, apartment, etc.
   struct LodgingFacility {
@@ -83,8 +83,8 @@ contract Stays is Initializable, ERC721Upgradeable, ERC721EnumerableUpgradeable,
   constructor() initializer {}
 
   function initialize() initializer public {
-      __ERC721_init("Stay Amsterdam", "STAYAMS");
-      __EIP712_init("Stay Amsterdam", "1");
+      __ERC721_init("Stay Barcelona", "STAYBCN");
+      __EIP712_init("Stay Barcelona", "1");
       __ERC721Enumerable_init();
       __ERC721URIStorage_init();
         __Pausable_init();
