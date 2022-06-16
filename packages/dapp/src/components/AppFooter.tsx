@@ -12,10 +12,10 @@ export const AppFooter = () => {
     >
       <Box align='center' margin={{ bottom: 'small' }}>
         <Text size='large'>
-          Created with 💖 for <a href="https://devconnect.org/">Devconnect</a>
+          Created with 💖 for <a href="https://ethbarcelona.com/">ETHBarcelona</a>
         </Text>
         <Text size='large'>
-          April 17&ndash;28, Amsterdam
+          July 6&ndash;8, Barcelona
         </Text>
       </Box>
 
