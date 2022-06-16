@@ -7,7 +7,6 @@ import { useSpaceSearch } from '../hooks/useSpaceSearch';
 import { useMemo, useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { MessageBox } from '../components/MessageBox';
-import { GradientText } from './Home';
 import styled from 'styled-components';
 import { SpaceRecord } from '../store/actions';
 import Logger from '../utils/logger';
@@ -126,11 +125,10 @@ export const Search = () => {
 
   return (
     <PageWrapper>
-
       <Box align='center' margin={{ bottom: 'small' }}>
-        <GradientText>Amsterdam Devconnect</GradientText>
-        <Text size='xxlarge'>
-          April 17&ndash;28
+        <Text size='3rem'>ETHBarcelona</Text>
+        <Text size='xlarge'>
+          July 6 - 8
         </Text>
       </Box>
 
@@ -165,7 +163,14 @@ export const Search = () => {
         </Text>
       </MessageBox>
 
-      <Box margin={{ top: 'large' }}>
+      <Text size='1rem'>The listings are ranked randomly</Text>
+      <Box border={{
+        color: 'black',
+        side: 'top',
+        size: '1.5px ',
+      }}
+        margin={{ top: 'small' }}
+      >
         {filteredSpaces.map((space) =>
           <SearchResultCard
             key={space.contractData.spaceId}
@@ -175,6 +180,6 @@ export const Search = () => {
           />
         )}
       </Box>
-    </PageWrapper>
+    </PageWrapper >
   );
 };

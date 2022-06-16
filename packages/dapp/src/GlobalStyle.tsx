@@ -2,6 +2,7 @@ import { Grommet } from 'grommet';
 import { grommet } from 'grommet/themes';
 import { generate } from 'grommet/themes/base';
 import { deepMerge } from 'grommet/utils';
+import { useLocation } from 'react-router-dom';
 import { useAppState } from './store';
 
 const baseTheme = deepMerge(grommet, {
@@ -22,6 +23,7 @@ const baseTheme = deepMerge(grommet, {
 
 export const GlobalStyle: React.FC = ({ children }) => {
   const { themeMode } = useAppState();
+  const location = useLocation();
 
   return (
     <Grommet
@@ -33,11 +35,11 @@ export const GlobalStyle: React.FC = ({ children }) => {
         minHeight: '100vh',
         backgroundAttachment: 'fixed'
       }}
-      background={{
+      background={location.pathname === '/' ? {
         image: 'url(/bg.png)',
         position: 'center',
         size: 'cover'
-      }}
+      } : {}}
     >
       {children}
     </Grommet>
