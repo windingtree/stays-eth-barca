@@ -3,7 +3,6 @@ import { Box, Text, Image, Carousel, Spinner, Anchor } from 'grommet';
 import { useAppState } from '../store';
 import { useMemo, useEffect, useState, useCallback } from 'react';
 import { BookWithDai } from '../components/buttons/BookWithDai';
-import { GradientText } from './Home';
 import { MessageBox } from '../components/MessageBox';
 import { ExternalLink } from '../components/ExternalLink';
 //import * as Icons from 'grommet-icons';
@@ -34,8 +33,8 @@ export const Contact = styled(Anchor)`
   color: #0D0E0F;
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
+  font-weight: 500;
+  font-size: 12px;
   line-height: 24px;
   text-align: center;
 `;
@@ -199,48 +198,49 @@ export const Space: React.FC = () => {
             src={facility?.media.logo}
           />
 
-          <GradientText margin={{ top: 'large', bottom: 'large' }}>
+          <Text weight={500} size='2rem' margin='small'>
             {facility?.name}
-          </GradientText>
-
+          </Text>
+          <Text weight={500} size='1.5rem'>
+            {space.name}
+          </Text>
           {!!facility &&
-            <Box>
-              <Box align='center' direction='row' style={{ fontSize: '1em' }} margin={{ bottom: 'medium' }}>
+              <Box align='center' justify='between' direction='row' style={{ fontSize: '1em' }} margin= 'medium'>
                 <Anchor
-                  size='large'
-                  label='🏨'
+                  size='small'
+                  label={facility.address.streetAddress + ', ' + facility.address.locality}
                   href={'https://www.openstreetmap.org/search?query=' + encodeURI(facility.address.streetAddress + ', ' + facility.address.locality)}
                   target="_blank"
-                  style={{ fontSize: '3em', lineHeight: '1.4em' }}
+                  style={{ fontSize: '1em', lineHeight: '1.4em', color: 'black' }}
                 />
                 &nbsp;&nbsp;&nbsp;
                 <Anchor
-                  size='large'
-                  label="🌎"
+                  size='small'
+                  label={facility?.contact?.website ?? ''}
                   href={facility?.contact?.website}
                   title={facility?.name}
                   target="_blank"
-                  style={{ fontSize: '3em' }}
+                  style={{ fontSize: '1em', lineHeight: '1.4em', color: 'black' }}
                 />
                 &nbsp;&nbsp;&nbsp;
                 <Anchor
                   size='large'
-                  label="📭"
+                  label={facility.contact?.email}
                   href={`mailto:${facility.contact?.email}`}
                   title={facility?.name}
                   target="_blank"
-                  style={{ fontSize: '3em' }}
+                  style={{ fontSize: '1em', lineHeight: '1.4em', color: 'black' }}
+                />
+                <Anchor
+                  size='large'
+                  label={facility.contact?.phone}
+                  href={`tel:${facility.contact?.phone}`}
+                  title={facility?.name}
+                  target="_blank"
+                  style={{ fontSize: '1em', lineHeight: '1.4em', marginLeft:'0.25rem', color: 'black' }}
                 />
               </Box>
-              <Contact href={`tel:${facility.contact?.phone}`}>
-                {facility.contact?.phone}
-              </Contact>
-            </Box>
           }
-
-          <GradientText margin={{ top: 'large', bottom: 'large' }}>
-            {space.name}
-          </GradientText>
 
           <Box
             fill
@@ -251,7 +251,7 @@ export const Space: React.FC = () => {
           </Box>
 
           <Box fill align='center' margin={{ bottom: 'xlarge' }}>
-            <Carousel height='large' width='xlarge'>
+            <Carousel height='large' width='xxlarge'>
               {space.media.images?.map((space, i) =>
                 <Image
                   key={i}
@@ -264,7 +264,7 @@ export const Space: React.FC = () => {
             </Carousel>
           </Box>
 
-          <Box fill direction='column' align='center' justify='between'>
+          <Box fill direction='row' align='center' justify='between'>
             <Text size='xxlarge' weight='bold'>{numberDays} nights, {roomsNumber} room{roomsNumber > 1 ? 's' : ''}</Text>
             <Box align='center' margin='medium'>
               <BookWithDai
