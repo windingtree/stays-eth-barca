@@ -46,10 +46,10 @@ const GreenCheckmark = styled(FormCheckmark)`
   color: white;
 `;
 
-const RedCheckmark = styled(FormCheckmark)`
-  border-radius: 50%;
-  background: white;
-`;
+// const RedCheckmark = styled(FormCheckmark)`
+//   border-radius: 50%;
+//   background: white;
+// `;
 
 export const CustomText = styled(Text)`
   color: #0D0E0F;
@@ -259,7 +259,7 @@ export const Space: React.FC = () => {
         <CustomText textAlign='center'>Make sure to save your token ID# so that you can use it to check-in at the hotel, if you go to the “My Tokens” section you can also download the QR code.</CustomText>
       </Box> : null}
 
-      {!!error ? <Card round={false}>
+      {/* {!!error ? <Card round={false}>
         <CardHeader border={{ color: '#47A180' }} background='#DB717A' align='center' justify='center' pad='0.75rem'>
           <RedCheckmark color='#47A180' />
           <Text color='white'>
@@ -290,7 +290,7 @@ export const Space: React.FC = () => {
 
       {!!error ? <Box pad='small'>
         <CustomText textAlign='center'>In the future, you can see the details of the reservation in your personal account section "Bookings"</CustomText>
-      </Box> : null}
+      </Box> : null} */}
 
       {isLoading && !space && <Box> No space with given id </Box>}
       {isLoading && !!space && !tokenId &&
