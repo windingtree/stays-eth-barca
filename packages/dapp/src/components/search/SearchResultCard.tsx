@@ -8,7 +8,7 @@ import { utils, BigNumber as BN } from 'ethers';
 import { useWindowsDimension } from '../../hooks/useWindowsDimension';
 
 export const CustomButton = styled(Button)`
-  color: black;
+  color: white;
   border: 1px solid black;
   height: 2.5rem;
   minWidth: 10rem;
@@ -18,7 +18,7 @@ export const CustomButton = styled(Button)`
   font-weight: 700;
   font-size: 16px;
   line-height: 24px;
-
+  background: black;
   &:hover,&:active {
     box-shadow: 0px 0px 0px 2px black;
   }
@@ -28,7 +28,7 @@ const ResponsiveColumn = (winWidth: number): string[] => {
   if (winWidth <= 768) {
     return ['medium'];
   }
-  return ['medium', 'flex'];
+  return ['23rem', 'flex'];
 };
 
 const ResponsiveRow = (winWidth: number): string[] => {
@@ -119,7 +119,7 @@ export const SearchResultCard: React.FC<{
           </Carousel>
         </Box>
         <Box gridArea="header">
-          <Text size='xxlarge' margin={{ bottom: 'medium' }}>
+          <Text size='xxlarge' margin={{ bottom: 'xsmall' }}>
             {space.name} {'🛌🏾 '.repeat(space.beds)}
           </Text>
           <Text size='xlarge'>
@@ -138,7 +138,7 @@ export const SearchResultCard: React.FC<{
             {space.description}
           </Text>
         </Box>
-        <Box direction='column' justify='between' align='center' gridArea="action">
+        <Box direction='row' justify='between' align='center' gridArea="action">
           <Text size='large'>{numberOfDays} nights, {roomsNumber} room{roomsNumber > 1 ? 's' : ''}</Text>
           <CustomButton
             label={'Book for ' + getPrice(numberOfDays, roomsNumber) + ' xDAI'}

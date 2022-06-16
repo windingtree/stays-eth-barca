@@ -22,8 +22,8 @@ export const PageWrapper = ({ children, breadcrumbs }: PageWrapperProps) => {
     <Box>
       <Box
         margin={{ left: 'auto', right: 'auto', bottom: 'xlarge' }}
-        pad={{ horizontal: 'small'}}
-        width={{ width: '100%', max: '900px' }}
+        pad={{ horizontal: 'small' }}
+        width={{ width: '100%', max: '1090px' }}
       >
         <Breadcrumbs
           breadcrumbs={breadcrumbs}
