@@ -1,4 +1,4 @@
-import {useMemo, useState} from 'react';
+import { useMemo, useState } from 'react';
 import { Box, Spinner, Text } from 'grommet';
 import { useAppState } from '../store';
 import { PageWrapper } from '../pages/PageWrapper';
@@ -20,11 +20,12 @@ export const GradientText = styled(Text)`
 `;
 
 export const CustomText = styled(Text)`
-  font-size: 3em;
+  
   line-height: 1.36em;
   font-weight: 900;
   text-align: center;
   font-family: Inter;
+  color: white;
   // background: linear-gradient(to right, #68bab7, #cc0033, #be8747, #c5393f, #5312a8);
   // -webkit-background-clip: text;
   // -webkit-text-fill-color: transparent;
@@ -51,40 +52,19 @@ export const Home = () => {
     [isIpfsNodeConnecting, isBootstrapLoading]
   );
 
-  const futureConferences = [
-    { name: 'Prague', link: 'https://ethprague.com/', when: '10-12 June' },
-    { name: 'Barcelona', link: 'https://ethbarcelona.com/', when: '6-7 July' },
-    { name: 'Paris', link: 'https://ethcc.io/', when: '19-21 July' },
-    { name: 'Bogota', link: 'https://devcon.org/en/#road-to-devcon', when: '11-14 October' },
-  ];
-
   return (
     <PageWrapper>
       <Box align='center' margin={{ bottom: 'large', top: 'large' }}>
-        <CustomText>
-          🦊 🦉 🔗 🏨
+        <CustomText size='3.5rem'>
+          Book your stay on-chain.
         </CustomText>
-        <GradientText>
-          What a sprint we’ve just finished 👌
-        </GradientText>
-        <GradientText>
-          All the rooms for Devconnect have been booked🚀
-        </GradientText>
-        <GradientText>
-          Stay in touch for the upcoming events👇
-        </GradientText>
-        <div>
-          <ul>
-            {futureConferences.map((conf) => (
-              <li>
-                <CustomLink>
-                  <a href={conf.link}>{conf.name}</a>
-                  [{conf.when}]
-                </CustomLink>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <CustomText size='3.5rem'>
+          Check-in with your NFT.
+        </CustomText>
+        <CustomText size='1.5rem'>
+          ETHBarcelona - July 6-8
+        </CustomText>
+    
       </Box>
 
       {(isIpfsNodeConnecting || isBootstrapLoading) &&

@@ -34,7 +34,7 @@ export const GlobalStyle: React.FC = ({ children }) => {
         backgroundAttachment: 'fixed'
       }}
       background={{
-        image: 'url(/bg.jpg)',
+        image: 'url(/bg.png)',
         position: 'center',
         size: 'cover'
       }}
