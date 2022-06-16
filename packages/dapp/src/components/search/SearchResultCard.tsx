@@ -120,7 +120,10 @@ export const SearchResultCard: React.FC<{
         </Box>
         <Box gridArea="header">
           <Text size='xxlarge' margin={{ bottom: 'xsmall' }}>
-            {space.name} {'🛌🏾 '.repeat(space.beds)}
+            {space.name}
+          </Text>
+          <Text size='medium' margin={{ bottom: 'xsmall' }}>
+            {space.beds} {space.beds > 1 ? 'beds' : 'bed'}
           </Text>
           <Text size='xlarge'>
             {facility?.name}
