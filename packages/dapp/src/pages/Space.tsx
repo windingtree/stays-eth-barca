@@ -232,7 +232,7 @@ export const Space: React.FC = () => {
           <Box>
             The Dapp is synchronizing with the smart contract. Please wait..&nbsp;
           </Box>
-          <Spinner />
+          <Spinner color='black' />
         </Box>
       </MessageBox>
 

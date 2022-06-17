@@ -64,11 +64,10 @@ export const Home = () => {
         <CustomText size='1.5rem'>
           ETHBarcelona - July 6-8
         </CustomText>
-    
       </Box>
 
       {(isIpfsNodeConnecting || isBootstrapLoading) &&
-        <Spinner color='accent-2' alignSelf='center' size='large' margin={{ top: 'large' }} />
+        <Spinner color='white' alignSelf='center' size='medium' margin={{ top: 'large' }} />
       }
 
       <MessageBox type='error' show={isReady && !!!bootstrapped}>
@@ -83,6 +82,16 @@ export const Home = () => {
         !!bootstrapped &&
         <SearchForm />
       }
+
+      <a
+        style={{
+          fontSize:'1rem',
+          marginTop: '4rem',
+          alignSelf: 'center',
+          filter: 'brightness(0) invert(1)'
+        }}
+        href="https://wallpapercave.com/solarpunk-wallpapers"
+      >Solarpunk City by Caveman</a>
     </PageWrapper>
   );
 };

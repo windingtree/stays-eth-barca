@@ -1,6 +1,6 @@
 import { PageWrapper } from './PageWrapper';
 import { SearchForm } from '../components/search/SearchForm';
-import { Box, Spinner, Text } from 'grommet';
+import { Anchor, Box, Spinner, Text } from 'grommet';
 import { SearchResultCard } from '../components/search/SearchResultCard';
 import { useAppState } from '../store';
 import { useSpaceSearch } from '../hooks/useSpaceSearch';
@@ -225,7 +225,7 @@ export const Search = () => {
         </Box>
       </MessageBox>
 
-      {loading || afterLoading ? <Spinner color='accent-1' alignSelf='center' size='large' /> : null}
+      {loading || afterLoading ? <Spinner color='black' alignSelf='center' size='medium' /> : null}
 
       <MessageBox type='info' show={
         searchActivated &&
@@ -237,7 +237,29 @@ export const Search = () => {
         </Text>
       </MessageBox>
 
-      {filteredSpaces.length > 1 ? <Text size='1rem'>The listings are ranked randomly</Text> : null}
+      <Box direction='row' justify='between' align='center'>
+        <Text textAlign='center' size='1rem'>The listings are ranked randomly</Text>
+        <Box direction='row' justify='end' align='center'>
+          <Text>not sure how to book?</Text>
+          <Anchor
+            style={{
+              textAlign: 'center',
+              lineHeight: '2.5rem',
+              fontSize: '0.75rem',
+              height: '2.5rem',
+              background: 'black',
+              color: 'white',
+              borderRadius: '2.5rem',
+              minWidth: '9rem',
+              marginLeft: '0.25rem'
+            }}
+            label='Read our Guides'
+            target="_blank"
+            href='https://win-guides.super.site/'
+          />
+        </Box>
+      </Box>
+
       <Box border={{
         color: 'black',
         side: 'top',
