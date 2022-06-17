@@ -92,7 +92,7 @@ export const pagesRoutesConfig: Routes = [
     path: '/facilities',
     element: <Facilities />,
     title: 'My Lodging Facilities',
-    label: 'Lodging Facilities',
+    // label: 'Lodging Facilities', // removed from main menu
     protected: true,
   },
   {
