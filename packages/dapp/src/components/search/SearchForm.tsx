@@ -112,9 +112,7 @@ export const SearchForm: React.FC<{
       <Box
         margin={{ left: 'small' }}
       >
-
-        <Label style={{ marginLeft: '0.5rem' }}>Location</Label>
-        <TextInput plain disabled placeholder='Barcelona' />
+        <Label style={{ marginLeft: '0.5rem' }}>Barcelona</Label>
       </Box>
       <Box
         direction='column'
@@ -131,9 +129,9 @@ export const SearchForm: React.FC<{
             size: 'large',
             icon: undefined,
             plain: true,
-            color:'#999EAB',
+            color: '#999EAB',
             style: {
-              marginTop:  winWidth > 410 ? '0.5rem' : '',
+              marginTop: winWidth > 410 ? '0.5rem' : '',
               background: 'white',
             }
           }}
