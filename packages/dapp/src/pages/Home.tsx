@@ -82,6 +82,16 @@ export const Home = () => {
         !!bootstrapped &&
         <SearchForm />
       }
+
+      <a
+        style={{
+          fontSize:'1rem',
+          marginTop: '4rem',
+          alignSelf: 'center',
+          filter: 'brightness(0) invert(1)'
+        }}
+        href="https://wallpapercave.com/solarpunk-wallpapers"
+      >Solarpunk City by Caveman</a>
     </PageWrapper>
   );
 };
