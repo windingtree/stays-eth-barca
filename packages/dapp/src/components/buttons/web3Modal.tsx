@@ -34,7 +34,7 @@ export const SignInButton = () => {
             </Text>
           }
           {size === 'small' &&
-            <Login />
+            <Login color='white' />
           }
           {isConnecting && <InnerSpinner />}
         </Box>
