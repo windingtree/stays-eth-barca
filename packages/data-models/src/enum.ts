@@ -12,6 +12,7 @@ export const allowedLodgingFacilityTypes = [
   'inn',
   'guest_house',
   'bed_and_breakfast',
+  'co-living',
   'resort',
   'hostal',
   'boatel',
