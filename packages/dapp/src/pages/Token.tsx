@@ -5,7 +5,6 @@ import { MessageBox } from "../components/MessageBox";
 import { useGetToken } from "../hooks/useMyTokens";
 import { useAppState } from "../store";
 import { TokenCard } from "../components/tokens/TokenCard";
-import { TokenView } from "../components/tokens/TokenView";
 import { PageWrapper } from "./PageWrapper";
 
 export const TokenSearch = ({ tokenId }: { tokenId?: string }) => {
@@ -14,20 +13,19 @@ export const TokenSearch = ({ tokenId }: { tokenId?: string }) => {
 
   return (
     <Box
-      width={{
-        max: '200px'
-      }}
-      direction="column"
+      // width={{
+      //   max: '200px'
+      // }}
+      direction="row"
+      align="end"
     >
-      <Box>
-        <Text size="large" weight='bold'>
-          Token Id:
-        </Text>
-      </Box>
       <Box
         background='white'
         margin={{ bottom: 'small' }}
       >
+        <Text size="large" weight='bold'>
+          Token Id:
+        </Text>
         <TextInput
           size="xlarge"
           value={id}
@@ -37,15 +35,18 @@ export const TokenSearch = ({ tokenId }: { tokenId?: string }) => {
           onChange={({ target }) => {
             let id: string =
               target.value !== '0' && target.value !== ''
-              ? target.value
-              : '1';
+                ? target.value
+                : '1';
             setTokenId(id);
           }}
         />
       </Box>
-      <Box>
+      <Box pad='small'>
         <Button
           primary
+          size="large"
+          color='black'
+          alignSelf="end"
           label='Search'
           onClick={() => {
             if (tokenId === '') {
@@ -69,7 +70,7 @@ export const Token = () => {
     () => searchParams.get('tokenId') || undefined,
     [searchParams]
   );
-  const [token, facilityOwner, tokenLoading, tokenError, refreshToken] = useGetToken(
+  const [token,, tokenLoading, tokenError, refreshToken] = useGetToken(
     rpcProvider,
     ipfsNode,
     tokenId,
@@ -99,7 +100,7 @@ export const Token = () => {
 
       <MessageBox type='info' show={tokenLoading}>
         <Box direction='row'>
-          <Box margin={{ right: 'small'}}>
+          <Box margin={{ right: 'small' }}>
             Token data is loading. Please wait..
           </Box>
           <Spinner color='black' />
@@ -118,17 +119,13 @@ export const Token = () => {
         >
           <TokenCard
             facility={facility}
-            onClick={() => {}}
+            onClick={() => { }}
+            // status={token?.status}
+            tokenId={token?.tokenId}
+            // facilityOwner={facilityOwner}
+            // owner={token?.owner}
             {...token.data}
-          >
-            <TokenView
-              facilityOwner={facilityOwner}
-              facility={facility}
-              {...token}
-              withCloseButton={false}
-              withRpcProvider={true}
-            />
-          </TokenCard>
+          />
         </Box>
       }
 
@@ -136,6 +133,7 @@ export const Token = () => {
         <Box margin={{ top: 'large' }} width='200px' align="center">
           <Button
             primary
+            color='black'
             size="large"
             label='Refresh token'
             onClick={() => refreshToken()}
