@@ -27,19 +27,14 @@ export const GlobalStyle: React.FC = ({ children }) => {
 
   return (
     <Grommet
-
       theme={baseTheme}
       themeMode={themeMode}
       style={{
         height: 'auto',
         minHeight: '100vh',
-        backgroundAttachment: 'fixed'
+        backgroundAttachment: 'fixed',
+        background: location.pathname === '/' ? 'url(/bg.png)' : ''
       }}
-      background={location.pathname === '/' ? {
-        image: 'url(/bg.png)',
-        position: 'center',
-        size: 'cover'
-      } : {}}
     >
       {children}
     </Grommet>

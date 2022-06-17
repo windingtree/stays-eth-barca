@@ -4,6 +4,7 @@ import { Login, Logout } from 'grommet-icons';
 import styled from 'styled-components';
 import { useAppState } from '../../store';
 import { StyledButton } from './index';
+import { useLocation } from 'react-router-dom';
 
 const InnerSpinner = styled(Spinner)`
   margin-left: 8px;
@@ -12,9 +13,16 @@ const InnerSpinner = styled(Spinner)`
 export const SignInButton = () => {
   const size = useContext(ResponsiveContext);
   const { isConnecting, signIn } = useAppState();
-
+  const location = useLocation();
+  const color = location.pathname === '/' ? 'white' : 'black'
+  const colorReverse = location.pathname === '/' ? 'black' : 'white'
+  
   return (
     <StyledButton
+    style={{
+      color: colorReverse,
+      background: color
+    }}
       onClick={() => signIn()}
       disabled={isConnecting}
     >
@@ -38,9 +46,16 @@ export const SignInButton = () => {
 export const SignOutButton = () => {
   const size = useContext(ResponsiveContext);
   const { isConnecting, signOut } = useAppState();
+  const location = useLocation();
+  const color = location.pathname === '/' ? 'white' : 'black'
+  const colorReverse = location.pathname === '/' ? 'black' : 'white'
 
   return (
     <StyledButton
+      style={{
+        color: colorReverse,
+        background: color
+      }}
       onClick={() => signOut()}
       disabled={isConnecting}
     >

@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { Box, Text, Notification, ResponsiveContext } from 'grommet';
 import { centerEllipsis, copyToClipboard } from '../utils/strings';
 import Logger from '../utils/logger';
+import { useLocation } from 'react-router-dom';
 
 // Initialize logger
 const logger = Logger('Account');
@@ -24,10 +25,10 @@ const AccountHash = styled(Text)`
 
 const AccountWrap = styled(Box)`
   /* background: rgba(13, 14, 15, 0.2); */
-  backdrop-filter: blur(36px);
+  // backdrop-filter: blur(36px);
   height: 2.5rem;
   min-width:2.5rem;
-  color: black;
+  // color: black;
   /* border: 1px solid rgba(255, 255, 255, 0.3); */
   border-radius: 2rem;
 
@@ -39,6 +40,9 @@ export const Account = ({ account }: AccountProps) => {
   const size = useContext(ResponsiveContext);
   const [notification, setNotification] = useState<boolean>(false);
   const shortAccount = useMemo(() => centerEllipsis(account || ''), [account]);
+  const location = useLocation();
+  const color = location.pathname === '/' ? 'white' : 'black'
+  const colorReverse = location.pathname === '/' ? 'black' : 'white'
 
   if (!account) {
     return null;
@@ -46,6 +50,8 @@ export const Account = ({ account }: AccountProps) => {
 
   return (
     <AccountWrap
+      background={color}
+      color={colorReverse}
       direction='row'
       align='center'
       justify='center'
