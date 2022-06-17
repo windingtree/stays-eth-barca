@@ -67,7 +67,7 @@ export const SignOutButton = () => {
             </Text>
           }
           {size === 'small' &&
-            <Logout />
+            <Logout color='white' />
           }
           {isConnecting && <InnerSpinner />}
         </Box>
