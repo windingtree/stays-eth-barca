@@ -69,7 +69,7 @@ export const CheckIn = (): JSX.Element => {
             <Box>
               The Dapp is synchronizing with the smart contract. Please wait..&nbsp;
             </Box>
-            <Spinner />
+            <Spinner color='black' />
           </Box>
         </MessageBox>
 
@@ -94,7 +94,7 @@ export const CheckIn = (): JSX.Element => {
               <ExternalLink href={hashLink} label={centerEllipsis(hash)} />
               : null}
 
-            {loading ? <Spinner color='accent-1' alignSelf='center' size='medium' /> : null}
+            {loading ? <Spinner color='black' alignSelf='center' size='medium' /> : null}
           </Box>
         }
       </PageWrapper>

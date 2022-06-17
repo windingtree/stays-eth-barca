@@ -118,7 +118,7 @@ export const MyTokens = () => {
             <Box margin={{ right: 'small '}}>
               Tokens data is loading. Please wait..&nbsp;
             </Box>
-            <Spinner />
+            <Spinner color='black' />
           </Box>
         </MessageBox>
 
