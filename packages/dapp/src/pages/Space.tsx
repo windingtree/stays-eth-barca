@@ -17,6 +17,7 @@ import styled from 'styled-components';
 import Logger from '../utils/logger';
 import { getDate } from '../utils/dates';
 import { FormCheckmark } from 'grommet-icons';
+import { useWindowsDimension } from '../hooks/useWindowsDimension';
 
 // Initialize logger
 const logger = Logger('Space');
@@ -78,6 +79,23 @@ const CustomTitle = styled(Text)`
   // margin-bottom: .5rem;
 `;
 
+const ResponsiveColumn = (winWidth: number): string => {
+  if (winWidth >= 1300) {
+    return "250";
+  } else if (winWidth >= 1000) {
+    return "250";
+  } else if (winWidth >= 768) {
+    return "220";
+  } else if (winWidth >= 600) {
+    return "200";
+  } else if (winWidth <= 500) {
+    return "150";
+  } else if (winWidth <= 400) {
+    return "100";
+  }
+  return "180";
+};
+
 export const Space: React.FC = () => {
   const {
     account,
@@ -89,6 +107,7 @@ export const Space: React.FC = () => {
     ipfsNode,
     bootstrapped
   } = useAppState();
+  const { winWidth } = useWindowsDimension();
 
   const query = window.location.pathname.substring(7);
   const space = useMemo(() => searchSpaces.find((space) => space.id === query), [searchSpaces, query]);
@@ -245,8 +264,8 @@ export const Space: React.FC = () => {
           </Box>
           <Box>
             <Image
-              height='250'
-              width='250'
+              height={ResponsiveColumn(winWidth)}
+              width={ResponsiveColumn(winWidth)}
               style={{ borderRadius: '50%' }}
               src={facility?.media.logo}
             />
