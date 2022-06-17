@@ -225,7 +225,7 @@ export const Search = () => {
         </Box>
       </MessageBox>
 
-      {loading || afterLoading ? <Spinner color='accent-1' alignSelf='center' size='large' /> : null}
+      {loading || afterLoading ? <Spinner color='black' alignSelf='center' size='medium' /> : null}
 
       <MessageBox type='info' show={
         searchActivated &&

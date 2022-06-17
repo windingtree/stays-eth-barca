@@ -64,11 +64,10 @@ export const Home = () => {
         <CustomText size='1.5rem'>
           ETHBarcelona - July 6-8
         </CustomText>
-    
       </Box>
 
       {(isIpfsNodeConnecting || isBootstrapLoading) &&
-        <Spinner color='accent-2' alignSelf='center' size='large' margin={{ top: 'large' }} />
+        <Spinner color='white' alignSelf='center' size='medium' margin={{ top: 'large' }} />
       }
 
       <MessageBox type='error' show={isReady && !!!bootstrapped}>
