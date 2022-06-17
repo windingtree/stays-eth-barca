@@ -237,7 +237,7 @@ export const Search = () => {
         </Text>
       </MessageBox>
 
-      <Text size='1rem'>The listings are ranked randomly</Text>
+      {filteredSpaces.length > 1 ? <Text size='1rem'>The listings are ranked randomly</Text> : null}
       <Box border={{
         color: 'black',
         side: 'top',
