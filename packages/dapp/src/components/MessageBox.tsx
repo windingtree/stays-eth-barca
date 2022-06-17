@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react';
-import { useContext } from 'react';
-import { Box, Button, ResponsiveContext } from 'grommet';
+import { Box, Button, Card, CardBody, CardFooter, CardHeader, Text } from 'grommet';
 import { StatusInfo, Alert } from 'grommet-icons';
 
 export const allowedMessageBoxTypes = [
@@ -24,43 +23,49 @@ export const MessageBox = ({
   children,
   onClose
 }: MessageBoxProps) => {
-  const size = useContext(ResponsiveContext);
 
   if (!show) {
     return null;
   }
 
   return (
-    <Box
-      fill
-      direction='row'
-      background='light-2'
-      align='center'
-      gap={size}
-      pad={size}
-      margin={{ bottom: 'small' }}
-    >
-      <Box>
-        {type === 'info' &&
-          <StatusInfo color='status-ok' size={size} />
-        }
-        {type === 'warn' &&
-          <Alert color='status-warning' size={size} />
-        }
-        {type === 'error' &&
-          <Alert color='status-error' size={size} />
-        }
-      </Box>
-      <Box direction='column' gap={size}>
+    <Card round={false}>
+      {type === 'info' &&
+        <CardHeader border={{ color: '#47A180' }} background='#CBF7DC' align='center' justify='center' pad='0.75rem'>
+          <StatusInfo color='white' size='small' />
+          <Text color='#47A180'>
+            Info
+          </Text>
+        </CardHeader>
+      }
+      {type === 'warn' &&
+        <CardHeader border={{ color: '#47A180' }} background='#fff9ba' align='center' justify='center' pad='0.75rem'>
+          <Alert size='small' />
+          <Text>
+            Warning
+          </Text>
+        </CardHeader>
+      }
+      {type === 'error' &&
+        <CardHeader border={{ color: '#47A180' }} background='#DB717A' align='center' justify='center' pad='0.75rem'>
+          <Alert color='status-error' size='small' />
+          <Text color='white'>
+            Booking Failed
+          </Text>
+        </CardHeader>
+      }
+      <CardBody background='white' border={{ color: '#999EAB', side: "vertical" }} pad='1rem' direction='row' align='center' justify='around'>
         <Box>
           {children}
         </Box>
+      </CardBody>
+      <CardFooter border={{ color: '#999EAB', side: "bottom" }}>
         {typeof onClose === 'function' &&
           <Box>
             <Button primary onClick={onClose} label='close' />
           </Box>
         }
-      </Box>
-    </Box>
+      </CardFooter>
+    </Card>
   );
 };
