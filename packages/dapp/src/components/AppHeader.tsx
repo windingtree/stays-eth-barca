@@ -8,7 +8,7 @@ import { SignInButton, SignOutButton } from '../components/buttons/web3Modal';
 import { GlobalMenu } from './Routes';
 
 export const AppHeader = () => {
-  const { state } = useLocation();
+  const { state, pathname } = useLocation();
 
   const navigate = useNavigate();
   const { account } = useAppState();
@@ -29,7 +29,7 @@ export const AppHeader = () => {
       }
 
       <Image
-        src='/logo.svg'
+        src={pathname === '/' ? '/logo-white.svg' : '/logo.svg'}
         onClick={() => navigate('/')}
         style={{ height: '32px', cursor: 'pointer' }}
       />
