@@ -33,7 +33,8 @@ export const GlobalStyle: React.FC = ({ children }) => {
         height: 'auto',
         minHeight: '100vh',
         backgroundAttachment: 'fixed',
-        background: location.pathname === '/' ? 'url(/bg.png)' : ''
+        background: location.pathname === '/' ? 'url(/bg.png)' : '',
+        backgroundSize: 'cover'
       }}
     >
       {children}
