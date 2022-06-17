@@ -75,7 +75,7 @@ const checkSpaceDatesRestrictions = (id: string, start: number, days: number) =>
     '0x6abd388e0b94564cb4bbecc06ebe587dab37325cf583bdc785bc27fafb16908f': {
       start: 134,
       days: 3,
-      min: 1
+      min: 3
     },
     // Le Méridien Barcelona
     '0x8251843e35e1f83aa0279b186ae94b0e23c6d59f8341f112619054249e7449a3': {
