@@ -165,6 +165,11 @@ export const GlobalMenu = () => {
     [navigate]
   );
 
+  const customRoute = {
+    label: "Read our Guides",
+    onClick: () => window.location.href='https://win-guides.super.site/',
+  }
+
   return (
     <Menu
       style={{
@@ -180,7 +185,7 @@ export const GlobalMenu = () => {
       }}
       disabled={isConnecting}
       icon={(<MenuIcon color={colorReverse} />)}
-      items={buildMenuConfig}
+      items={[...buildMenuConfig, customRoute]}
     />
   );
 };
