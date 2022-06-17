@@ -32,7 +32,7 @@ export const MessageBox = ({
     <Card round={false}>
       {type === 'info' &&
         <CardHeader border={{ color: '#47A180' }} background='#CBF7DC' align='center' justify='center' pad='0.75rem'>
-          <StatusInfo color='white' size='small' />
+          <StatusInfo color='#47A180' />
           <Text color='#47A180'>
             Info
           </Text>
@@ -48,9 +48,9 @@ export const MessageBox = ({
       }
       {type === 'error' &&
         <CardHeader border={{ color: '#47A180' }} background='#DB717A' align='center' justify='center' pad='0.75rem'>
-          <Alert color='status-error' size='small' />
+          <Alert color='white' />
           <Text color='white'>
-            Booking Failed
+            Error
           </Text>
         </CardHeader>
       }

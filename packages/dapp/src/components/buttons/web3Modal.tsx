@@ -34,7 +34,7 @@ export const SignInButton = () => {
             </Text>
           }
           {size === 'small' &&
-            <Login />
+            <Login color='white' />
           }
           {isConnecting && <InnerSpinner />}
         </Box>
@@ -67,7 +67,7 @@ export const SignOutButton = () => {
             </Text>
           }
           {size === 'small' &&
-            <Logout />
+            <Logout color='white' />
           }
           {isConnecting && <InnerSpinner />}
         </Box>
