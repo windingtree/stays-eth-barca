@@ -1,11 +1,10 @@
 import type { ReactNode } from 'react';
 import { useMemo } from 'react';
-import { useRoutes, useNavigate } from 'react-router-dom';
+import { useRoutes, useNavigate, useLocation } from 'react-router-dom';
 import { Menu } from 'grommet';
 import { Menu as MenuIcon } from 'grommet-icons';
 import { useAppState } from '../store';
 import { Protected } from './Protected';
-import styled from 'styled-components';
 import { useWindowsDimension } from '../hooks/useWindowsDimension';
 
 // Pages
@@ -22,12 +21,6 @@ import { CheckIn } from '../pages/CheckIn';
 import { Facilities } from '../pages/Facilities';
 import { Token } from '../pages/Token';
 
-const CustomMenu = styled(Menu)`
-  border-radius: 50%;
-  border: 1px solid black;
-background: white;
-
-`;
 
 export interface RouteConfig {
   path: string;
@@ -147,6 +140,9 @@ export const AppRoutes = () => useRoutes(
 export const GlobalMenu = () => {
   const { isConnecting } = useAppState();
   const { winWidth } = useWindowsDimension();
+  const location = useLocation();
+  const color = location.pathname === '/' ? 'white' : 'black'
+  const colorReverse = location.pathname === '/' ? 'black' : 'white'
   const navigate = useNavigate();
   const buildMenuConfig = useMemo(
     () => pagesRoutesConfig
@@ -170,15 +166,20 @@ export const GlobalMenu = () => {
   );
 
   return (
-    <CustomMenu
-      style={{ padding: winWidth > 512 ? '' : '0 3px' }}
-      dropBackground={{ color: 'black', opacity: 0.9 }}
+    <Menu
+      style={{
+        padding: winWidth > 512 ? '' : '0 3px',
+        background: color,
+        borderRadius: '50%',
+        border: '1px solid black',
+      }}
+      dropBackground={{ color: color, opacity: 0.9 }}
       dropAlign={{
         top: "bottom",
         left: "left",
       }}
       disabled={isConnecting}
-      icon={(<MenuIcon color='black' />)}
+      icon={(<MenuIcon color={colorReverse} />)}
       items={buildMenuConfig}
     />
   );

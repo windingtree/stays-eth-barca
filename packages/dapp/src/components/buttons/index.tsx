@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 const StyledButton = styled(Button)`
 height: 2.5rem;
-color: black;
-background: white;
+// color: black;
+// background: white;
 border: 1px solid black;
 border-radius: 2.5rem;
 &:hover,&:active {
