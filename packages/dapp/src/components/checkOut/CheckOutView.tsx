@@ -149,7 +149,7 @@ export const CheckOutView = ({
               tokenId={tokenId}
               onError={err => setQrError(err)}
               name={name}
-              // description={description}
+              description={description}
               attributes={attributes}
               facility={facility}
               pricePerNightWei={'0'}
