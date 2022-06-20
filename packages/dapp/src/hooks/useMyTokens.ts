@@ -164,9 +164,8 @@ export const useGetToken = (
 
         setLoading(false);
       } catch (err) {
-        console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
         logger.error(err);
-        const message = (err as Error).message || 'Unknown useGetToken error';
+        const message = `Unable to get token #${id}`;
         setError(message);
         setLoading(false);
       }
