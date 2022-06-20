@@ -15,8 +15,7 @@ const getNewBookingsTokenIds = (contract, fromBlock) => __awaiter(void 0, void 0
     const staysCreatedFilter = contract.filters.NewStay();
     const stayCreated = yield contract.queryFilter(staysCreatedFilter, fromBlock, 'latest');
     stayCreated.map(s => {
-        var _a;
-        tokens.add((_a = s === null || s === void 0 ? void 0 : s.args) === null || _a === void 0 ? void 0 : _a.tokenId);
+        tokens.add(s.args.tokenId);
     });
     return Array.from(tokens);
 });
