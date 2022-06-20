@@ -238,9 +238,8 @@ export const Search = () => {
       </MessageBox>
 
       <Box direction='row' justify='between' align='center'>
-        <Text textAlign='center' size='1rem'>The listings are ranked randomly</Text>
         <Box direction='row' justify='end' align='center'>
-          <Text>not sure how to book?</Text>
+          <Text color='red'>Not sure how to book?</Text>
           <Anchor
             style={{
               textAlign: 'center',
@@ -258,6 +257,7 @@ export const Search = () => {
             href='https://win-guides.super.site/'
           />
         </Box>
+        <Text textAlign='center' size='1rem'>The listings are ranked randomly</Text>
       </Box>
 
       <Box border={{
