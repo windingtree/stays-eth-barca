@@ -89,7 +89,7 @@ export interface StayVoucherQrProps {
   tokenId: string,
   onError: (error: string) => void
   name: string;
-  description: string;
+  // description: string;
   attributes?: TokenAttribute[];
   facility?: LodgingFacilityRecord;
   pricePerNightWei?: string;
@@ -102,7 +102,7 @@ export const StayVoucherQr = ({
   tokenId,
   onError,
   name,
-  description,
+  // description,
   attributes,
   facility
 }: StayVoucherQrProps) => {
