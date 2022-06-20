@@ -40,7 +40,7 @@ export const useSignVoucher = (
         throw new Error('Stay voucher recipient not defined');
       }
 
-      const voucher = createVoucher(
+      const voucher = await createVoucher(
         signer,
         from,
         to,
