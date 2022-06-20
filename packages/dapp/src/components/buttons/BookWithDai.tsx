@@ -20,7 +20,7 @@ export const BookWithDai: React.FC<{
           <Text size='large'>
             {text}
           </Text>
-          {loading && <InnerSpinner color='white' />}
+          {loading && <InnerSpinner />}
         </Box>
       )}
     </CustomButton>
