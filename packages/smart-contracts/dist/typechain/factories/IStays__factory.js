@@ -524,19 +524,6 @@ const _abi = [
     {
         inputs: [
             {
-                internalType: "bytes32",
-                name: "_spaceId",
-                type: "bytes32",
-            },
-        ],
-        name: "deleteSpace",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
-    },
-    {
-        inputs: [
-            {
                 internalType: "address",
                 name: "payer",
                 type: "address",
