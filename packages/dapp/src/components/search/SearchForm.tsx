@@ -41,6 +41,8 @@ const tomorrow = today.plus({ days: 1 });
 
 const defaultStartDay = DateTime.fromISO('2022-07-06');
 const defaultEndDay = DateTime.fromISO('2022-07-09');
+const defaultBoundStartDay = DateTime.fromISO('2022-07-03');
+const defaultBoundEndDay = DateTime.fromISO('2022-07-10');
 
 const defaultStartDate = today.toMillis() > defaultStartDay.toMillis() ? today.toISO() : defaultStartDay.toISO()
 const defaultEndDate = tomorrow.toMillis() > defaultEndDay.toMillis() ? tomorrow.toISO() : defaultEndDay.toISO()
@@ -136,7 +138,7 @@ export const SearchForm: React.FC<{
             }
           }}
           calendarProps={{
-            bounds: [defaultStartDay.toISO(), defaultEndDay.toISO()],
+            bounds: [defaultBoundStartDay.toISO(), defaultBoundEndDay.toISO()],
             fill: false,
             alignSelf: 'center',
             margin: 'small',
