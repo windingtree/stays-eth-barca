@@ -253,12 +253,12 @@ export const Space: React.FC = () => {
             Booking Successful
           </Text>
         </CardHeader>
-        <CardBody border={{ color: '#999EAB', side: "vertical" }} pad='1rem' direction='row' align='center' justify='around'>
+        <CardBody border={{ color: '#999EAB', side: "vertical" }} pad='1rem' directiogstn='row' align='center' justify='around'>
           <Box>
             <CustomTitle>{facility?.name}</CustomTitle>
             <CustomText>{facility?.address.streetAddress + ', ' + facility?.address.locality}</CustomText>
-            <CustomText>{getDate(searchParams?.startDay ?? 0).toFormat('MM.dd.yy')}-{getDate(Number(searchParams?.startDay ?? 0) + Number(numberDays)).toFormat('MM.dd.yy')}</CustomText>
-            <CustomText>{facility?.type}, {numberDays} {numberDays === 1 ? 'room' : 'rooms'}</CustomText>
+            <CustomText>{facility?.type}, {numberDays} {numberDays === 1 ? 'night' : 'nights'}</CustomText>
+            <CustomText>{getDate(searchParams?.startDay ?? 0).toFormat('dd.MM.yy')}-{getDate(Number(searchParams?.startDay ?? 0) + Number(numberDays)).toFormat('dd.MM.yy')}</CustomText>
             <CustomText>{getPrice(numberDays, roomsNumber)} xDAI</CustomText>
             <CustomBoldText weight={800}> Token Id#{tokenId}</CustomBoldText>
           </Box>
