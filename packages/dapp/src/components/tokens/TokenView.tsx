@@ -157,7 +157,7 @@ export const TokenView = ({
               tokenId={tokenId}
               onError={err => setError(err)}
               name={name}
-              // description={description}
+              description={description}
               attributes={attributes}
               facility={facility}
               pricePerNightWei={'0'}

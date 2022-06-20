@@ -3,12 +3,14 @@ import { useCallback, useMemo } from 'react';
 import { Spinner, Box, Text } from 'grommet';
 import { PageWrapper } from './PageWrapper';
 import { MessageBox } from '../components/MessageBox';
+import { useSearchParams } from 'react-router-dom';
 import { useAppState } from '../store';
 // import { useWindowsDimension } from "../hooks/useWindowsDimension";
-import { useMyTokens } from '../hooks/useMyTokens';
+import { useMyTokens, useGetToken } from '../hooks/useMyTokens';
 // import { useGoToMessage } from '../hooks/useGoToMessage';
 import styled from 'styled-components';
 import { TokenCard } from '../components/tokens/TokenCard';
+import { TokenView } from '../components/tokens/TokenView';
 // import { CustomButton } from '../components/SearchResultCard';
 
 export const Header = styled(Text)`
@@ -40,19 +42,25 @@ export const Header = styled(Text)`
 
 export const MyTokens = () => {
   const { provider, ipfsNode, account, lodgingFacilities } = useAppState();
-  // const [searchParams, setSearchParams] = useSearchParams();
-  // const tokenId = useMemo(
-  //   () => searchParams.get('tokenId') || undefined,
-  //   [searchParams]
-  // );
+  const [searchParams, setSearchParams] = useSearchParams();
+  const tokenId = useMemo(
+    () => searchParams.get('tokenId') || undefined,
+    [searchParams]
+  );
   const [tokens, tokensLoading, tokensError] = useMyTokens(
     provider,
     ipfsNode,
     account
   );
+  const [token, facilityOwner, tokenLoading, tokenError] = useGetToken(
+    provider,
+    ipfsNode,
+    tokenId
+  );
+  // const { winWidth } = useWindowsDimension();
   const isLoading = useMemo(
-    () => tokensLoading,
-    [tokensLoading]
+    () => tokensLoading || tokenLoading,
+    [tokensLoading, tokenLoading]
   );
 
   const findFacility = useCallback(
@@ -103,11 +111,11 @@ export const MyTokens = () => {
   return (
     <PageWrapper>
       <Box>
-        <Header>Bookings</Header>
+        <Header>Stay tokens</Header>
 
         <MessageBox type='info' show={isLoading}>
           <Box direction='row'>
-            <Box margin={{ right: 'small ' }}>
+            <Box margin={{ right: 'small '}}>
               Tokens data is loading. Please wait..&nbsp;
             </Box>
             <Spinner color='black' />
@@ -126,21 +134,31 @@ export const MyTokens = () => {
           </Box>
         </MessageBox>
 
+        <MessageBox type='error' show={!!tokenError}>
+          <Box>
+            {tokenError}
+          </Box>
+        </MessageBox>
+
         <Box
           direction='column'
-          // alignSelf="center"
+          alignSelf="center"
         >
-          {tokens.map(({ tokenId, data }, index) => (
+          {tokens?.map(({ tokenId, data }, index) => (
             <TokenCard
               facility={findFacility(data)}
               key={index}
-              // onClick={() => setSearchParams({ tokenId })}
-              // status={token?.status}
-              tokenId={tokenId}
-              // facilityOwner={facilityOwner}
-              // owner={token?.owner}
+              onClick={() => setSearchParams({ tokenId })}
               {...data}
-            />
+            >
+              {(token && token.tokenId === tokenId) ?
+                <TokenView
+                  facilityOwner={facilityOwner}
+                  facility={findFacility(data)}
+                  {...token}
+                />
+                : null}
+            </TokenCard>
           ))}
         </Box>
       </Box>
