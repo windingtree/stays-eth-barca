@@ -253,7 +253,7 @@ export const Space: React.FC = () => {
             Booking Successful
           </Text>
         </CardHeader>
-        <CardBody border={{ color: '#999EAB', side: "vertical" }} pad='1rem' directiogstn='row' align='center' justify='around'>
+        <CardBody border={{ color: '#999EAB', side: "vertical" }} pad='1rem' direction='row' align='center' justify='around'>
           <Box>
             <CustomTitle>{facility?.name}</CustomTitle>
             <CustomText>{facility?.address.streetAddress + ', ' + facility?.address.locality}</CustomText>
