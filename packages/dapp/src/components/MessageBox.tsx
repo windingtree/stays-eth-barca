@@ -29,7 +29,7 @@ export const MessageBox = ({
   }
 
   return (
-    <Card round={false}>
+    <Card margin={{ vertical: 'small' }} round={false}>
       {type === 'info' &&
         <CardHeader border={{ color: '#47A180' }} background='#CBF7DC' align='center' justify='center' pad='0.75rem'>
           <StatusInfo color='#47A180' />
