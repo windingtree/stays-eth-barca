@@ -36,7 +36,7 @@ export const SignInButton = () => {
           {size === 'small' &&
             <Login color={colorReverse} />
           }
-          {isConnecting && <InnerSpinner />}
+          {isConnecting && <InnerSpinner color={colorReverse} />}
         </Box>
       )}
     </StyledButton>
@@ -69,7 +69,7 @@ export const SignOutButton = () => {
           {size === 'small' &&
             <Logout color={colorReverse} />
           }
-          {isConnecting && <InnerSpinner />}
+          {isConnecting && <InnerSpinner color={colorReverse} />}
         </Box>
       )}
     </StyledButton>
