@@ -21,6 +21,7 @@ export const CheckIn = (): JSX.Element => {
   const [contract, loadingContract] = useContract(provider, ipfsNode);
 
   const [hash, setHash] = useState('');
+  const [successMessage, setSuccessMessage] = useState<string | undefined>();
   const hashLink = useMemo(() => {
     const network = getNetwork()
     return hash ? `${network.blockExplorer}/tx/${hash}` : null
@@ -32,7 +33,8 @@ export const CheckIn = (): JSX.Element => {
   const handleCheckIn = useCallback(
     async (data: string) => {
       try {
-        setLoading(true)
+        setSuccessMessage(undefined);
+        setLoading(true);
         if (!contract) {
           throw new Error('Contract is not connected');
         }
@@ -46,11 +48,12 @@ export const CheckIn = (): JSX.Element => {
           setHash,
           undefined
         )
-        setLoading(false)
+        setLoading(false);
+        setSuccessMessage(`Token ${parsedData.tokenId} successfully checked in!`);
       } catch (error) {
-        setLoading(false)
+        setSuccessMessage(undefined);
+        setLoading(false);
         setError((error as Error).message);
-
       }
     }, [contract, setError, setLoading, setHash])
 
@@ -77,6 +80,14 @@ export const CheckIn = (): JSX.Element => {
           <Box direction='row'>
             <Box>
               {error}
+            </Box>
+          </Box>
+        </MessageBox>
+
+        <MessageBox type='info' show={!!successMessage}>
+          <Box direction='row'>
+            <Box>
+              {successMessage}
             </Box>
           </Box>
         </MessageBox>
