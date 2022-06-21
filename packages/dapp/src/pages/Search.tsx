@@ -244,7 +244,13 @@ export const Search = () => {
         (noResults || filteredSpaces.length === 0)
       }>
         <Text>
-          No Rooms Found
+          No Rooms Found, this could be due to a few reasons:
+        </Text>
+        <Text>
+          1 - There are no rooms for this period, try different dates
+        </Text>
+        <Text>
+          2 - Clear you cookies and cache and try again (<a style={{ fontWeight: 600, color: 'black' }} href='https://support.google.com/accounts/answer/32050?hl=en&co=GENIE.Platform%3DDesktop'>see how?</a>)
         </Text>
       </MessageBox>
 
