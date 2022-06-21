@@ -4,8 +4,8 @@ import { QrReader as QrCodeReader } from 'react-qr-reader';
 import { Modal } from './Modal';
 
 export const QrReader: React.FC<{
-  onScan(data: string): void;
-  onError(data: string): void
+  onScan: (data: string) => void;
+  onError: (data: string) => void;
 }> = ({ onScan,onError }) => {
   const [show, setShow] = useState(false);
 

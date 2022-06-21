@@ -32,7 +32,6 @@ export interface IStaysInterface extends utils.Interface {
         "deactivateLodgingFacility(bytes32)": FunctionFragment;
         "deactivateSpace(bytes32)": FunctionFragment;
         "deleteLodgingFacility(bytes32)": FunctionFragment;
-        "deleteSpace(bytes32)": FunctionFragment;
         "deposit(address,bytes32,uint256)": FunctionFragment;
         "depositOf(address,bytes32,uint256)": FunctionFragment;
         "depositState(uint256)": FunctionFragment;
@@ -59,7 +58,6 @@ export interface IStaysInterface extends utils.Interface {
     encodeFunctionData(functionFragment: "deactivateLodgingFacility", values: [BytesLike]): string;
     encodeFunctionData(functionFragment: "deactivateSpace", values: [BytesLike]): string;
     encodeFunctionData(functionFragment: "deleteLodgingFacility", values: [BytesLike]): string;
-    encodeFunctionData(functionFragment: "deleteSpace", values: [BytesLike]): string;
     encodeFunctionData(functionFragment: "deposit", values: [string, BytesLike, BigNumberish]): string;
     encodeFunctionData(functionFragment: "depositOf", values: [string, BytesLike, BigNumberish]): string;
     encodeFunctionData(functionFragment: "depositState", values: [BigNumberish]): string;
@@ -85,7 +83,6 @@ export interface IStaysInterface extends utils.Interface {
     decodeFunctionResult(functionFragment: "deactivateLodgingFacility", data: BytesLike): Result;
     decodeFunctionResult(functionFragment: "deactivateSpace", data: BytesLike): Result;
     decodeFunctionResult(functionFragment: "deleteLodgingFacility", data: BytesLike): Result;
-    decodeFunctionResult(functionFragment: "deleteSpace", data: BytesLike): Result;
     decodeFunctionResult(functionFragment: "deposit", data: BytesLike): Result;
     decodeFunctionResult(functionFragment: "depositOf", data: BytesLike): Result;
     decodeFunctionResult(functionFragment: "depositState", data: BytesLike): Result;
@@ -318,9 +315,6 @@ export interface IStays extends BaseContract {
         deleteLodgingFacility(_lodgingFacilityId: BytesLike, overrides?: Overrides & {
             from?: string | Promise<string>;
         }): Promise<ContractTransaction>;
-        deleteSpace(_spaceId: BytesLike, overrides?: Overrides & {
-            from?: string | Promise<string>;
-        }): Promise<ContractTransaction>;
         deposit(payer: string, spaceId: BytesLike, tokenId: BigNumberish, overrides?: PayableOverrides & {
             from?: string | Promise<string>;
         }): Promise<ContractTransaction>;
@@ -408,9 +402,6 @@ export interface IStays extends BaseContract {
     deleteLodgingFacility(_lodgingFacilityId: BytesLike, overrides?: Overrides & {
         from?: string | Promise<string>;
     }): Promise<ContractTransaction>;
-    deleteSpace(_spaceId: BytesLike, overrides?: Overrides & {
-        from?: string | Promise<string>;
-    }): Promise<ContractTransaction>;
     deposit(payer: string, spaceId: BytesLike, tokenId: BigNumberish, overrides?: PayableOverrides & {
         from?: string | Promise<string>;
     }): Promise<ContractTransaction>;
@@ -482,7 +473,6 @@ export interface IStays extends BaseContract {
         deactivateLodgingFacility(_lodgingFacilityId: BytesLike, overrides?: CallOverrides): Promise<void>;
         deactivateSpace(_spaceId: BytesLike, overrides?: CallOverrides): Promise<void>;
         deleteLodgingFacility(_lodgingFacilityId: BytesLike, overrides?: CallOverrides): Promise<void>;
-        deleteSpace(_spaceId: BytesLike, overrides?: CallOverrides): Promise<void>;
         deposit(payer: string, spaceId: BytesLike, tokenId: BigNumberish, overrides?: CallOverrides): Promise<void>;
         depositOf(payer: string, spaceId: BytesLike, tokenId: BigNumberish, overrides?: CallOverrides): Promise<BigNumber>;
         depositState(tokenId: BigNumberish, overrides?: CallOverrides): Promise<number>;
@@ -585,9 +575,6 @@ export interface IStays extends BaseContract {
         deleteLodgingFacility(_lodgingFacilityId: BytesLike, overrides?: Overrides & {
             from?: string | Promise<string>;
         }): Promise<BigNumber>;
-        deleteSpace(_spaceId: BytesLike, overrides?: Overrides & {
-            from?: string | Promise<string>;
-        }): Promise<BigNumber>;
         deposit(payer: string, spaceId: BytesLike, tokenId: BigNumberish, overrides?: PayableOverrides & {
             from?: string | Promise<string>;
         }): Promise<BigNumber>;
@@ -650,9 +637,6 @@ export interface IStays extends BaseContract {
             from?: string | Promise<string>;
         }): Promise<PopulatedTransaction>;
         deleteLodgingFacility(_lodgingFacilityId: BytesLike, overrides?: Overrides & {
-            from?: string | Promise<string>;
-        }): Promise<PopulatedTransaction>;
-        deleteSpace(_spaceId: BytesLike, overrides?: Overrides & {
             from?: string | Promise<string>;
         }): Promise<PopulatedTransaction>;
         deposit(payer: string, spaceId: BytesLike, tokenId: BigNumberish, overrides?: PayableOverrides & {
