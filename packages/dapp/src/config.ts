@@ -9,6 +9,7 @@ export interface NetworkInfo {
   chainId: number;
   address: string;
   blockExplorer: string;
+  currency?: string;
 }
 
 export interface NetworkWithRpc extends NetworkInfo {
@@ -82,12 +83,14 @@ const allowedNetworks: NetworkInfo[] = [
     chainId: 77,
     address: '',
     blockExplorer: 'https://blockscout.com/poa/sokol',
+    currency: 'SPOA'
   },
   {
     name: 'Gnosis Chain (xDai)',
     chainId: 100,
     address: '',
     blockExplorer: 'https://blockscout.com/xdai/mainnet',
+    currency: 'XDAI'
   },
 ];
 
