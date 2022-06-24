@@ -123,14 +123,20 @@ const checkSpaceDatesRestrictions = (id: string, start: number, days: number) =>
     },
     // CoImpact Coliving
     '0x95f83ef30489f3c4fbac675e231ca798bf8189df7f3f4687185be53bd4a5fcde': {
-      start: 132,
+      start: 131,
       days: 5,
       min: 5
     },
     '0xa62d26ea238837a83692ceca595fc89bd44c982f9b5e04fcea784ee0d0e6b102': {
-      start: 132,
+      start: 131,
       days: 5,
       min: 5
+    },
+    // Gallery Hotel. Standard room
+    '0xb989947a6d86ac7800f8079c2e2947cdb3fdb1c077d8961cadd10fc2724642a1': {
+      start: 131,
+      days: 7,
+      min: 3
     },
   };
 
