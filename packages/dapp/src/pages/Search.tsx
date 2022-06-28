@@ -125,7 +125,7 @@ const checkSpaceDatesRestrictions = (id: string, start: number, days: number) =>
     '0x95f83ef30489f3c4fbac675e231ca798bf8189df7f3f4687185be53bd4a5fcde': {
       start: 131,
       days: 5,
-      min: 5
+      min: 100 // this is set deliberately to a high number; we want to turn OFF this space
     },
     '0xa62d26ea238837a83692ceca595fc89bd44c982f9b5e04fcea784ee0d0e6b102': {
       start: 131,
