@@ -130,7 +130,7 @@ const checkSpaceDatesRestrictions = (id: string, start: number, days: number) =>
     '0xa62d26ea238837a83692ceca595fc89bd44c982f9b5e04fcea784ee0d0e6b102': {
       start: 131,
       days: 5,
-      min: 5
+      min: 100 // this is set deliberately to a high number; we want to turn OFF this space
     },
     // Gallery Hotel. Standard room
     '0xb989947a6d86ac7800f8079c2e2947cdb3fdb1c077d8961cadd10fc2724642a1': {
